@@ -1,7 +1,10 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { Action } from 'rxjs/internal/scheduler/Action';
 import { Product } from '@/types/product';
 import styles from './ProductCard.module.css';
+import { StaggerItem } from './Motion';
+import { motion } from 'framer-motion';
 
 interface ProductCardProps {
     product: Product;
@@ -16,9 +19,13 @@ export default function ProductCard({ product }: ProductCardProps) {
     }).format(product.price);
 
     return (
-        <div className={styles.card}>
+        <StaggerItem className={styles.card}>
             <Link href={`/product/${product.id}`} className={styles.imageLink}>
-                <div className={styles.imageWrapper}>
+                <motion.div
+                    className={styles.imageWrapper}
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.3 }}
+                >
                     <Image
                         src={product.images[0]}
                         alt={product.name}
@@ -28,7 +35,7 @@ export default function ProductCard({ product }: ProductCardProps) {
                     />
                     {product.isNew && <span className={styles.badge}>Nuevo</span>}
                     {product.isBestSeller && <span className={styles.badge}>Más Vendido</span>}
-                </div>
+                </motion.div>
             </Link>
             <div className={styles.info}>
                 <Link href={`/product/${product.id}`}>
@@ -47,7 +54,7 @@ export default function ProductCard({ product }: ProductCardProps) {
                     {product.colors.length > 3 && <span className={styles.moreColors}>+</span>}
                 </div>
             </div>
-        </div>
+        </StaggerItem>
     );
 }
 

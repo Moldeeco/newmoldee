@@ -4,6 +4,7 @@ import { useState } from 'react';
 import ProductCard from './ProductCard';
 import { Product } from '@/types/product';
 import styles from './ProductGrid.module.css';
+import { StaggerContainer } from './Motion';
 
 interface ProductGridProps {
     products: Product[];
@@ -39,11 +40,11 @@ export default function ProductGrid({ products, showFilters = true }: ProductGri
                 </div>
             )}
 
-            <div className={styles.grid}>
+            <StaggerContainer className={styles.grid}>
                 {displayProducts.map((product) => (
                     <ProductCard key={product.id} product={product} />
                 ))}
-            </div>
+            </StaggerContainer>
 
             {displayProducts.length === 0 && (
                 <p className={styles.empty}>No hay productos.</p>
