@@ -4,7 +4,6 @@ import Image from 'next/image';
 import { useState, useEffect, useRef } from 'react';
 import { useCart } from '@/context/CartContext';
 import styles from './Header.module.css';
-import ThemeToggle from './ThemeToggle';
 
 export default function Header() {
     const [isVisible, setIsVisible] = useState(true);
@@ -59,6 +58,25 @@ export default function Header() {
                         />
                     </Link>
 
+                    {/* Search - Desktop */}
+                    <div className={styles.searchContainer}>
+                        <form onSubmit={(e) => {
+                            e.preventDefault();
+                            const formData = new FormData(e.currentTarget);
+                            const q = formData.get('q');
+                            if (typeof q === 'string' && q.trim()) {
+                                window.location.href = `/catalogo?q=${encodeURIComponent(q.trim())}`;
+                            }
+                        }}>
+                            <input
+                                type="text"
+                                name="q"
+                                placeholder="Buscar..."
+                                className={styles.searchInput}
+                            />
+                        </form>
+                    </div>
+
                     {/* Desktop Nav - Center */}
                     <nav className={styles.desktopNav}>
                         <Link href="/catalogo">Catálogo</Link>
@@ -73,8 +91,6 @@ export default function Header() {
                         </svg>
                         {totalItems > 0 && <span className={styles.badge}>{totalItems}</span>}
                     </button>
-
-                    <ThemeToggle />
                 </div>
             </header>
 
