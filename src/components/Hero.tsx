@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import PrintingText from './PrintingText';
 import styles from './Hero.module.css';
 import { FadeIn } from './Motion';
 
@@ -7,7 +8,7 @@ export default function Hero() {
         <section className={styles.hero}>
             <div className={styles.content}>
                 <FadeIn delay={0.2} direction="up">
-                    <h1 className={styles.title}>Moldeamos tus ideas</h1>
+                    <PrintingText text="Moldeamos tus ideas" className={styles.title} />
                 </FadeIn>
                 <FadeIn delay={0.4} direction="up">
                     <p className={styles.subtitle}>
