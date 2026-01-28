@@ -1,0 +1,33 @@
+.sectionHeader {
+  text-align: center;
+  margin-bottom: var(--spacing-8);
+}
+
+.sectionHeader h2 {
+  font-size: 2rem;
+  margin-bottom: var(--spacing-2);
+}
+
+.sectionHeader p {
+  color: #666;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  /* 2 cols mobile */
+  gap: var(--spacing-4) var(--spacing-3);
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-8);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

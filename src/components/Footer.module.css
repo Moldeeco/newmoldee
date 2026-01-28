@@ -1,0 +1,46 @@
+.footer {
+    background-color: var(--color-foreground);
+    color: var(--color-background);
+    padding: var(--spacing-16) 0;
+    margin-top: auto;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-8);
+}
+
+.title {
+    margin-bottom: var(--spacing-4);
+    font-size: 1rem;
+}
+
+.text,
+.link {
+    color: #a0a0a0;
+    font-size: 0.9rem;
+    display: block;
+    margin-bottom: var(--spacing-2);
+}
+
+.link:hover {
+    color: var(--color-background);
+}
+
+.copy {
+    margin-top: var(--spacing-8);
+    font-size: 0.8rem;
+    color: #666;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .copy {
+        grid-column: 1 / -1;
+    }
+}

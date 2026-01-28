@@ -1,0 +1,65 @@
+/* Mobile: Naked Button (Just the Icon) */
+.button {
+    position: fixed;
+    bottom: var(--spacing-6);
+    right: var(--spacing-6);
+    background-color: transparent;
+    padding: 0;
+    border-radius: 50%;
+    /* Just in case */
+    display: flex;
+    align-items: center;
+    z-index: 1000;
+    transition: transform 0.2s ease;
+    text-decoration: none;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.2));
+    /* Shadow on the icon itself */
+}
+
+.button:hover {
+    transform: scale(1.1);
+}
+
+.iconWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon {
+    width: 60px;
+    height: 60px;
+}
+
+.label {
+    display: none;
+}
+
+/* Desktop: Pill Button */
+@media (min-width: 768px) {
+    .button {
+        background-color: #25D366;
+        color: white;
+        padding: var(--spacing-3) var(--spacing-4);
+        border-radius: var(--radius-full);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        filter: none;
+        gap: var(--spacing-2);
+    }
+
+    .button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .label {
+        display: block;
+        font-size: 0.9rem;
+        font-weight: 600;
+    }
+
+    .icon {
+        width: 24px;
+        height: 24px;
+    }
+}

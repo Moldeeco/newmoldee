@@ -1,0 +1,59 @@
+.wrapper {
+    width: 100%;
+}
+
+.filters {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-3);
+    margin-bottom: var(--spacing-8);
+    flex-wrap: wrap;
+}
+
+.filterBtn {
+    background: white;
+    border: 1px solid var(--color-border);
+    padding: var(--spacing-2) var(--spacing-6);
+    border-radius: var(--radius-full);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-foreground);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.filterBtn:hover {
+    border-color: var(--color-foreground);
+}
+
+.active {
+    background: var(--color-foreground);
+    color: var(--color-background);
+    border-color: var(--color-foreground);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* 2 cols mobile */
+    gap: var(--spacing-4) var(--spacing-3);
+}
+
+.empty {
+    text-align: center;
+    color: #666;
+    padding: var(--spacing-12);
+}
+
+@media (min-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--spacing-8);
+    }
+}
+
+@media (min-width: 1024px) {
+    .grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}

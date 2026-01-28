@@ -1,0 +1,154 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    display: flex;
+    justify-content: flex-end;
+    animation: fadeIn 0.3s ease;
+}
+
+.drawer {
+    width: 100%;
+    max-width: 450px;
+    height: 100%;
+    background: var(--color-background);
+    display: flex;
+    flex-direction: column;
+    animation: slideIn 0.3s ease;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+    padding: var(--spacing-4);
+    border-bottom: 1px solid var(--color-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header h2 {
+    font-size: 1.5rem;
+}
+
+.closeBtn {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.items {
+    flex: 1;
+    overflow-y: auto;
+    padding: var(--spacing-4);
+}
+
+.empty {
+    text-align: center;
+    padding-top: var(--spacing-12);
+    color: #666;
+}
+
+.continueBtn {
+    margin-top: var(--spacing-4);
+    background: none;
+    border: 1px solid var(--color-foreground);
+    padding: var(--spacing-2) var(--spacing-4);
+    cursor: pointer;
+}
+
+.item {
+    display: flex;
+    gap: var(--spacing-4);
+    margin-bottom: var(--spacing-6);
+    padding-bottom: var(--spacing-4);
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.itemImage {
+    width: 80px;
+    height: 80px;
+    background-color: var(--color-secondary);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+}
+
+.itemInfo {
+    flex: 1;
+}
+
+.itemInfo h4 {
+    font-size: 1rem;
+    margin-bottom: var(--spacing-1);
+}
+
+.variant {
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: var(--spacing-2);
+}
+
+.priceRow {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+    margin-bottom: var(--spacing-2);
+}
+
+.removeBtn {
+    background: none;
+    border: none;
+    text-decoration: underline;
+    font-size: 0.8rem;
+    color: #999;
+    cursor: pointer;
+}
+
+.footer {
+    padding: var(--spacing-6);
+    border-top: 1px solid var(--color-border);
+    background: var(--color-secondary);
+}
+
+.total {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-2);
+}
+
+.shippingNote {
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: var(--spacing-4);
+}
+
+.checkoutBtn {
+    width: 100%;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

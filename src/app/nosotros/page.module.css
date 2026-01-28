@@ -1,0 +1,87 @@
+.container {
+    padding-top: var(--spacing-16);
+    padding-bottom: var(--spacing-16);
+}
+
+.hero {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto var(--spacing-16);
+}
+
+.title {
+    font-size: 3rem;
+    margin-bottom: var(--spacing-4);
+}
+
+.subtitle {
+    font-size: 1.25rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-8);
+    margin-bottom: var(--spacing-16);
+    align-items: center;
+}
+
+.textBlock h2 {
+    font-size: 2rem;
+    margin-bottom: var(--spacing-4);
+}
+
+.textBlock p {
+    margin-bottom: var(--spacing-4);
+    line-height: 1.8;
+    color: var(--color-foreground);
+}
+
+.placeholderImage {
+    width: 100%;
+    aspect-ratio: 4/3;
+    background-color: var(--color-secondary);
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    color: #999;
+}
+
+.values {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-4);
+}
+
+.valueCard {
+    background: var(--color-secondary);
+    padding: var(--spacing-8);
+    border-radius: var(--radius-md);
+    text-align: center;
+}
+
+.valueCard h3 {
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-2);
+}
+
+.valueCard p {
+    color: #666;
+    font-size: 0.95rem;
+}
+
+@media (min-width: 768px) {
+    .content {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-16);
+    }
+
+    .values {
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--spacing-8);
+    }
+}

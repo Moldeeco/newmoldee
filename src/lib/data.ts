@@ -1,0 +1,46 @@
+import { Product } from '@/types/product';
+
+export const products: Product[] = [
+    {
+        id: '1',
+        name: 'Soporte HotWheels',
+        description: 'Exhibe tu colección con estilo. Soporte modular para autos a escala 1:64. Perfecto para coleccionistas.',
+        price: 45000,
+        images: ['/products/hotwheels-stand.jpg', '/products/hotwheels-stand-2.jpg', '/products/hotwheels-stand-3.jpg'],
+        category: 'Coleccionables',
+        materials: ['PLA', 'PETG'],
+        colors: ['Blanco', 'Negro', 'Gris', 'Rojo'],
+        isBestSeller: true,
+    },
+    {
+        id: '2',
+        name: 'Soporte Casco',
+        description: 'Cuida tu equipo. Soporte de pared para casco de moto o bicicleta, con gancho para llaves incluido.',
+        price: 35000,
+        images: ['/products/soporte-casco-1.jpg', '/products/soporte-casco-2.jpg'],
+        category: 'Accesorios',
+        materials: ['PLA', 'PETG'],
+        colors: ['Negro', 'Gris'],
+    },
+    {
+        id: '3',
+        name: 'Base Celular Escritorio',
+        description: 'Mantén tu espacio organizado. Base estable para celular con ángulo de visión perfecto para videollamadas.',
+        price: 25000,
+        images: ['/products/soporte-celular-1.jpg', '/products/soporte-celular-2.jpg', '/products/soporte-celular-3.jpg'],
+        category: 'Oficina',
+        materials: ['PLA', 'Resina'],
+        colors: ['Blanco', 'Negro', 'Azul'],
+    },
+    {
+        id: '4',
+        name: 'Repisa Flotante',
+        description: 'Minimalismo puro. Repisa invisible para libros o figuras, soporta hasta 5kg.',
+        price: 55000,
+        images: ['/products/soporte-flotante-3.jpg', '/products/soporte-flotante-4.jpg', '/products/soporte-flotante-1.jpg'],
+        category: 'Hogar',
+        materials: ['PETG', 'Resina'],
+        colors: ['Negro', 'Blanco'],
+        isNew: true,
+    },
+];
