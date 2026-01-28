@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { AnimatePresence } from 'framer-motion';
 import ProductCard from './ProductCard';
 import { Product } from '@/types/product';
 import styles from './ProductGrid.module.css';
@@ -40,10 +41,12 @@ export default function ProductGrid({ products, showFilters = true }: ProductGri
                 </div>
             )}
 
-            <StaggerContainer className={styles.grid}>
-                {displayProducts.map((product) => (
-                    <ProductCard key={product.id} product={product} />
-                ))}
+            <StaggerContainer className={styles.grid} key={selectedCategory}>
+                <AnimatePresence mode="popLayout">
+                    {displayProducts.map((product) => (
+                        <ProductCard key={product.id} product={product} />
+                    ))}
+                </AnimatePresence>
             </StaggerContainer>
 
             {displayProducts.length === 0 && (
