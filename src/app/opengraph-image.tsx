@@ -3,7 +3,7 @@ import { ImageResponse } from 'next/og';
 export const runtime = 'edge';
 
 // Image metadata
-export const alt = 'Moldee.co - Impresión 3D Premium';
+export const alt = 'Moldee.co - Moldeamos tus ideas';
 export const size = {
   width: 1200,
   height: 630,
@@ -59,7 +59,7 @@ export default async function Image() {
             maxWidth: 800,
           }}
         >
-          Impresión 3D Premium en Colombia
+          Moldeamos tus ideas
         </div>
       </div>
     ),

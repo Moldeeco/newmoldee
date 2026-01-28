@@ -7,7 +7,7 @@ export default function Hero() {
         <section className={styles.hero}>
             <div className={styles.content}>
                 <FadeIn delay={0.2} direction="up">
-                    <h1 className={styles.title}>Diseño que Moldea el Futuro</h1>
+                    <h1 className={styles.title}>Moldeamos tus ideas</h1>
                 </FadeIn>
                 <FadeIn delay={0.4} direction="up">
                     <p className={styles.subtitle}>

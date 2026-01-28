@@ -8,10 +8,10 @@ const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://moldee.co'),
-  title: 'Moldee.co | Impresión 3D Premium en Colombia',
+  title: 'Moldee.co | Moldeamos tus ideas',
   description: 'Objetos de diseño únicos impresos en 3D. Accesorios para escritorio, hogar y coleccionables. Envíos a todo el país.',
   openGraph: {
-    title: 'Moldee.co | Impresión 3D Premium',
+    title: 'Moldee.co | Moldeamos tus ideas',
     description: 'Objetos de diseño impresos en 3D bajo demanda en Colombia.',
     url: 'https://moldee.co',
     siteName: 'Moldee.co',
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Moldee.co | Impresión 3D Premium',
+    title: 'Moldee.co | Moldeamos tus ideas',
     description: 'Objetos de diseño impresos en 3D bajo demanda en Colombia.',
   },
 };
