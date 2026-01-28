@@ -19,6 +19,9 @@ export interface Product {
     variants?: ProductVariant[];
     isNew?: boolean;
     isBestSeller?: boolean;
+    isCustom?: boolean;
+    shortDescription?: string;
+    shipping?: string;
 }
 
 export interface CartItem extends Product {
