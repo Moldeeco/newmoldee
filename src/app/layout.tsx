@@ -29,6 +29,7 @@ import { CartProvider } from '@/context/CartContext';
 import CartDrawer from '@/components/CartDrawer';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import { Analytics } from '@vercel/analytics/react';
+import { ThemeProvider } from '@/components/ThemeProvider';
 
 export default function RootLayout({
   children,
@@ -39,12 +40,14 @@ export default function RootLayout({
     <html lang="es">
       <body className={inter.className}>
         <CartProvider>
-          <Header />
-          <CartDrawer />
-          <WhatsAppButton />
-          {children}
-          <Footer />
-          <Analytics />
+          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+            <Header />
+            <CartDrawer />
+            <WhatsAppButton />
+            {children}
+            <Footer />
+            <Analytics />
+          </ThemeProvider>
         </CartProvider>
       </body>
     </html>
