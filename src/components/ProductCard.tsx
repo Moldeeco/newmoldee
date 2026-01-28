@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { Action } from 'rxjs/internal/scheduler/Action';
+
 import { Product } from '@/types/product';
 import styles from './ProductCard.module.css';
 import { StaggerItem } from './Motion';
