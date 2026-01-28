@@ -13,7 +13,7 @@ export default function Home() {
           <p>Diseños exclusivos para transformar tu espacio.</p>
         </div>
 
-        <ProductGrid products={products.slice(0, 4)} showFilters={false} />
+        <ProductGrid products={products} showFilters={true} />
       </div>
     </main>
   );
