@@ -20,18 +20,6 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
     return {
         title: `${product.name} | Moldee.co`,
         description: product.description,
-        openGraph: {
-            title: `${product.name} | Moldee.co`,
-            description: product.description,
-            images: [
-                {
-                    url: product.images[0],
-                    width: 800,
-                    height: 600,
-                    alt: product.name,
-                },
-            ],
-        },
     };
 }
 
