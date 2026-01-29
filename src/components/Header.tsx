@@ -58,25 +58,6 @@ export default function Header() {
                         />
                     </Link>
 
-                    {/* Search - Desktop */}
-                    <div className={styles.searchContainer}>
-                        <form onSubmit={(e) => {
-                            e.preventDefault();
-                            const formData = new FormData(e.currentTarget);
-                            const q = formData.get('q');
-                            if (typeof q === 'string' && q.trim()) {
-                                window.location.href = `/catalogo?q=${encodeURIComponent(q.trim())}`;
-                            }
-                        }}>
-                            <input
-                                type="text"
-                                name="q"
-                                placeholder="Buscar..."
-                                className={styles.searchInput}
-                            />
-                        </form>
-                    </div>
-
                     {/* Desktop Nav - Center */}
                     <nav className={styles.desktopNav}>
                         <Link href="/catalogo">Catálogo</Link>

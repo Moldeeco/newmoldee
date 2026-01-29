@@ -10,28 +10,19 @@ import { StaggerContainer } from './Motion';
 interface ProductGridProps {
     products: Product[];
     showFilters?: boolean;
-    searchQuery?: string;
 }
 
-export default function ProductGrid({ products, showFilters = true, searchQuery = '' }: ProductGridProps) {
+export default function ProductGrid({ products, showFilters = true }: ProductGridProps) {
     // Extract unique categories
     const categories = ['Todos', ...Array.from(new Set(products.map((p) => p.category)))];
     const [selectedCategory, setSelectedCategory] = useState('Todos');
 
-    const filteredProducts = products.filter((p) => {
-        // 1. Filter by Category
-        const categoryMatch = selectedCategory === 'Todos' || p.category === selectedCategory;
+    const filteredProducts = selectedCategory === 'Todos'
+        ? products
+        : products.filter((p) => p.category === selectedCategory);
 
-        // 2. Filter by Search Query
-        const searchMatch = searchQuery
-            ? p.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-            p.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-            p.category.toLowerCase().includes(searchQuery.toLowerCase())
-            : true;
-
-        return categoryMatch && searchMatch;
-    });
-
+    // If filters are hidden, just show exact passed products (or maybe we still want logic? User said move buttons).
+    // If showFilters is false, we ignore component-level category state and just show what was passed.
     const displayProducts = showFilters ? filteredProducts : products;
 
     return (

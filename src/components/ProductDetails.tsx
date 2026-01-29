@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { Product, ProductColor, ProductMaterial } from '@/types/product';
 import { useCart } from '@/context/CartContext';
 import styles from './ProductDetails.module.css';
+import Breadcrumbs from './Breadcrumbs';
 
 export default function ProductDetails({ product }: { product: Product }) {
     const { addItem } = useCart();
@@ -22,6 +23,16 @@ export default function ProductDetails({ product }: { product: Product }) {
 
     return (
         <div className={`container ${styles.container}`}>
+            <div style={{ width: '100%', marginBottom: 'var(--spacing-4)' }}>
+                <Breadcrumbs
+                    items={[
+                        { label: 'Inicio', href: '/' },
+                        { label: 'Catálogo', href: '/catalogo' },
+                        { label: product.name },
+                    ]}
+                />
+            </div>
+
             <div className={styles.gallery}>
                 <div className={styles.mainImageWrapper}>
                     <Image
