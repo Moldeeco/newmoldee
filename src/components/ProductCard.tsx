@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { useState } from 'react';
 
 import { Product } from '@/types/product';
 import styles from './ProductCard.module.css';
@@ -11,6 +12,8 @@ interface ProductCardProps {
 }
 
 export default function ProductCard({ product }: ProductCardProps) {
+    const [currentImage, setCurrentImage] = useState(product.images[0]);
+
     const formattedPrice = new Intl.NumberFormat('es-CO', {
         style: 'currency',
         currency: 'COP',
@@ -27,7 +30,7 @@ export default function ProductCard({ product }: ProductCardProps) {
                     transition={{ duration: 0.3 }}
                 >
                     <Image
-                        src={product.images[0]}
+                        src={currentImage}
                         alt={product.name}
                         fill
                         className={styles.image}
@@ -44,11 +47,18 @@ export default function ProductCard({ product }: ProductCardProps) {
                 <p className={styles.price}>{formattedPrice}</p>
                 <div className={styles.swatches}>
                     {product.colors.slice(0, 3).map((color) => (
-                        <span
+                        <button
                             key={color}
                             className={styles.swatch}
                             style={{ backgroundColor: getColorCode(color) }}
                             title={color}
+                            onClick={(e) => {
+                                e.preventDefault(); // Prevent navigation
+                                e.stopPropagation();
+                                if (product.colorImages && product.colorImages[color]) {
+                                    setCurrentImage(product.colorImages[color]);
+                                }
+                            }}
                         />
                     ))}
                     {product.colors.length > 3 && <span className={styles.moreColors}>+</span>}

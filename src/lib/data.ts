@@ -39,7 +39,7 @@ export const products: Product[] = [
         colors: ['Negro', 'Blanco'],
         colorImages: {
             'Negro': '/products/hotwheels-stand.jpg',
-            'Blanco': '/products/hotwheels-stand-2.jpg',
+            'Blanco': '/products/hotwheels-stand-3.jpg',
         },
         materials: ['PLA'],
         shipping: 'Envíos a todo Colombia · Entregas en Bogotá',
