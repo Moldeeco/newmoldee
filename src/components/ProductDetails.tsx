@@ -84,7 +84,16 @@ export default function ProductDetails({ product }: { product: Product }) {
                                 key={color}
                                 className={`${styles.colorBtn} ${selectedColor === color ? styles.selectedColor : ''}`}
                                 style={{ backgroundColor: getColorCode(color) }}
-                                onClick={() => setSelectedColor(color)}
+                                onClick={() => {
+                                    setSelectedColor(color);
+                                    if (product.colorImages && product.colorImages[color]) {
+                                        const imgUrl = product.colorImages[color];
+                                        const index = product.images.indexOf(imgUrl);
+                                        if (index !== -1) {
+                                            setCurrentImageIndex(index);
+                                        }
+                                    }
+                                }}
                                 aria-label={`Seleccionar color ${color}`}
                             />
                         ))}

@@ -22,6 +22,7 @@ export interface Product {
     isCustom?: boolean;
     shortDescription?: string;
     shipping?: string;
+    colorImages?: Record<string, string>;
 }
 
 export interface CartItem extends Product {

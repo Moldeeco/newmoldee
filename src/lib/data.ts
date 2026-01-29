@@ -36,7 +36,11 @@ export const products: Product[] = [
         isCustom: false,
         shortDescription: 'Exhibidor modular de pared para Hot Wheels (hasta 10 carros).',
         description: 'Soporte modular de pared diseñado para exhibir hasta 10 Hot Wheels de forma ordenada y segura. Su sistema encajable permite unir múltiples módulos entre sí para expandir tu colección y crear una exhibición continua en la pared.',
-        colors: ['Negro', 'Blanco', 'Gris'],
+        colors: ['Negro', 'Blanco'],
+        colorImages: {
+            'Negro': '/products/hotwheels-stand.jpg',
+            'Blanco': '/products/hotwheels-stand-2.jpg',
+        },
         materials: ['PLA'],
         shipping: 'Envíos a todo Colombia · Entregas en Bogotá',
         isBestSeller: true,
