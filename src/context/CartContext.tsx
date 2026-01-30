@@ -5,7 +5,7 @@ import { CartItem, Product, ProductColor, ProductMaterial } from '@/types/produc
 interface CartContextType {
     items: CartItem[];
     addItem: (product: Product, options: { color: string; material?: string; quantity: number }) => void;
-    removeItem: (itemId: string, color: string, material: string) => void;
+    removeItem: (itemId: string, color: string, material?: string) => void;
     clearCart: () => void;
     totalItems: number;
     totalPrice: number;
