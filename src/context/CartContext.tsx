@@ -4,7 +4,7 @@ import { CartItem, Product, ProductColor, ProductMaterial } from '@/types/produc
 
 interface CartContextType {
     items: CartItem[];
-    addItem: (product: Product, options: { color: string; material: string; quantity: number }) => void;
+    addItem: (product: Product, options: { color: string; material?: string; quantity: number }) => void;
     removeItem: (itemId: string, color: string, material: string) => void;
     clearCart: () => void;
     totalItems: number;
@@ -40,13 +40,13 @@ export function CartProvider({ children }: { children: ReactNode }) {
         }
     }, [items]);
 
-    const addItem = (product: Product, options: { color: string; material: string; quantity: number }) => {
+    const addItem = (product: Product, options: { color: string; material?: string; quantity: number }) => {
         setItems((prev) => {
             const existingItem = prev.find(
                 (item) =>
                     item.id === product.id &&
                     item.selectedColor === options.color &&
-                    item.selectedMaterial === options.material
+                    (item.selectedMaterial === options.material || (!item.selectedMaterial && !options.material))
             );
 
             if (existingItem) {
@@ -60,14 +60,14 @@ export function CartProvider({ children }: { children: ReactNode }) {
             return [...prev, {
                 ...product,
                 selectedColor: options.color as ProductColor,
-                selectedMaterial: options.material as ProductMaterial,
+                selectedMaterial: options.material as ProductMaterial | undefined,
                 quantity: options.quantity
             }];
         });
         setIsCartOpen(true);
     };
 
-    const removeItem = (itemId: string, color: string, material: string) => {
+    const removeItem = (itemId: string, color: string, material?: string) => {
         setItems((prev) => prev.filter((item) =>
             !(item.id === itemId && item.selectedColor === color && item.selectedMaterial === material)
         ));

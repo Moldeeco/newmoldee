@@ -2,7 +2,7 @@ import Image from 'next/image';
 import styles from './WhatsAppButton.module.css';
 
 export default function WhatsAppButton() {
-    const phoneNumber = '573000000000'; // Replace with real number
+    const phoneNumber = '573054312520';
     const message = 'Hola Moldee.co, estoy interesado en un producto 3D.';
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 

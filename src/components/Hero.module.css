@@ -37,15 +37,28 @@
 .title {
     font-size: 3rem;
     font-weight: 800;
-    margin-bottom: var(--spacing-4);
+    margin-bottom: var(--spacing-3);
+    /* Small gap */
     line-height: 1.1;
+    color: var(--color-foreground);
+    letter-spacing: -0.02em;
 }
 
 .subtitle {
     font-size: 1.25rem;
+    /* ~40-45% of 3rem */
     margin-bottom: var(--spacing-8);
-    font-weight: 500;
+    /* More space between subline and CTAs */
+    font-weight: 400;
+    /* Regular/Medium whisper */
     color: var(--color-foreground);
+    opacity: 0.85;
+    /* Slightly lighter */
+    line-height: 1.6;
+    /* Relaxed */
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .buttons {

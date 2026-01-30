@@ -10,10 +10,11 @@ export default function Hero() {
                     <h1 className={styles.title}>Moldeamos tus ideas</h1>
                 </FadeIn>
                 <FadeIn delay={0.4} direction="up">
-                    <p className={styles.subtitle}>
-                        Objetos impresos en 3D con materiales sostenibles. <br />
-                        Hechos en Colombia, pensados para ti.
-                    </p>
+                    <div className={styles.subtitleWrapper}>
+                        <p className={styles.subtitle}>
+                            Objetos hechos a tu medida.
+                        </p>
+                    </div>
                 </FadeIn>
                 <FadeIn delay={0.6} direction="up">
                     <div className={styles.buttons}>

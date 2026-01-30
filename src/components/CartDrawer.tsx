@@ -84,7 +84,9 @@ export default function CartDrawer() {
                                 </div>
                                 <div className={styles.itemInfo}>
                                     <h4>{item.name}</h4>
-                                    <p className={styles.variant}>{item.selectedMaterial} / {item.selectedColor}</p>
+                                    <p className={styles.variant}>
+                                        {item.selectedMaterial ? `${item.selectedMaterial} / ` : ''}{item.selectedColor}
+                                    </p>
                                     <div className={styles.priceRow}>
                                         <span>Cant: {item.quantity}</span>
                                         <span>${(item.price * item.quantity).toLocaleString('es-CO')}</span>

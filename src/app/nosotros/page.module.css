@@ -1,24 +1,9 @@
 .container {
-    padding-top: var(--spacing-16);
+    padding-top: var(--spacing-4);
     padding-bottom: var(--spacing-16);
 }
 
-.hero {
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto var(--spacing-16);
-}
-
-.title {
-    font-size: 3rem;
-    margin-bottom: var(--spacing-4);
-}
-
-.subtitle {
-    font-size: 1.25rem;
-    color: #666;
-    line-height: 1.6;
-}
+/* Removed hero styles as they are replaced by PageHeader */
 
 .content {
     display: grid;
@@ -29,26 +14,29 @@
 }
 
 .textBlock h2 {
-    font-size: 2rem;
-    margin-bottom: var(--spacing-4);
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-6);
 }
 
-.textBlock p {
+.paragraph {
     margin-bottom: var(--spacing-4);
     line-height: 1.8;
     color: var(--color-foreground);
+    font-size: 1.1rem;
 }
 
-.placeholderImage {
+.ctaBtn {
+    margin-top: var(--spacing-4);
+    padding: var(--spacing-3) var(--spacing-8);
+}
+
+.imageWrapper {
     width: 100%;
     aspect-ratio: 4/3;
-    background-color: var(--color-secondary);
+    position: relative;
     border-radius: var(--radius-lg);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 600;
-    color: #999;
+    overflow: hidden;
+    background-color: var(--color-secondary);
 }
 
 .values {
@@ -62,6 +50,31 @@
     padding: var(--spacing-8);
     border-radius: var(--radius-md);
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.2s ease;
+}
+
+.valueCard:hover {
+    transform: translateY(-4px);
+}
+
+.iconWrapper {
+    width: 48px;
+    height: 48px;
+    background: var(--color-background);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--spacing-4);
+    color: var(--color-foreground);
+}
+
+.iconWrapper svg {
+    width: 24px;
+    height: 24px;
 }
 
 .valueCard h3 {

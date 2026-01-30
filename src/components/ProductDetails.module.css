@@ -78,12 +78,15 @@
 }
 
 .title {
-    font-size: 2.5rem;
+    font-size: 2rem;
+    /* Reduced from 2.5rem */
     margin-bottom: var(--spacing-2);
+    font-weight: 700;
 }
 
 .price {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
+    /* Reduced from 1.5rem */
     color: #666;
     margin-bottom: var(--spacing-6);
     font-weight: 500;
@@ -93,6 +96,8 @@
     margin-bottom: var(--spacing-8);
     line-height: 1.6;
     color: var(--color-foreground);
+    font-size: 1rem;
+    /* Defined explicit size */
 }
 
 .selector {
@@ -140,18 +145,26 @@
 }
 
 .colorBtn {
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    /* Slightly smaller, more refined */
+    height: 36px;
     border-radius: 50%;
-    border: 1px solid #ddd;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    /* Subtle border for white/light colors */
     cursor: pointer;
-    transition: transform 0.2s;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+.colorBtn:hover {
+    transform: scale(1.1);
 }
 
 .selectedColor {
     transform: scale(1.1);
-    box-shadow: 0 0 0 2px var(--color-background), 0 0 0 4px var(--color-foreground);
-    border: none;
+    box-shadow: 0 0 0 2px var(--color-background), 0 0 0 3px var(--color-foreground);
+    /* Cleaner, thinner ring */
+    border-color: transparent;
 }
 
 .addToCart {

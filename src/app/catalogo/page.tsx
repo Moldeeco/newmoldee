@@ -1,3 +1,4 @@
+import PageHeader from '@/components/PageHeader';
 import ProductGrid from '@/components/ProductGrid';
 import { products } from '@/lib/data';
 import { Metadata } from 'next';
@@ -10,14 +11,12 @@ export const metadata: Metadata = {
 export default function CatalogPage() {
     return (
         <main>
-            <div className="container" style={{ padding: 'var(--spacing-16) var(--spacing-4)' }}>
-                <div style={{ textAlign: 'center', marginBottom: 'var(--spacing-8)' }}>
-                    <h1>Catálogo Completo</h1>
-                    <p style={{ color: '#666', marginTop: 'var(--spacing-2)' }}>
-                        Encuentra el diseño perfecto para ti.
-                    </p>
-                </div>
-
+            <PageHeader
+                title="Catálogo"
+                subtitle="Objetos diseñados para transformar tu espacio."
+                microline="Impresos en 3D · Materiales sostenibles · Hechos en Colombia"
+            />
+            <div className="container">
                 <ProductGrid products={products} showFilters={true} />
             </div>
         </main>

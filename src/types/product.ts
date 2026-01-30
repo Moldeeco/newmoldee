@@ -27,6 +27,6 @@ export interface Product {
 
 export interface CartItem extends Product {
     selectedColor: ProductColor;
-    selectedMaterial: ProductMaterial;
+    selectedMaterial?: ProductMaterial;
     quantity: number;
 }
