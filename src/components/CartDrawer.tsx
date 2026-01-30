@@ -49,7 +49,7 @@ export default function CartDrawer() {
             }
         } catch (error) {
             console.error('Error creating preference:', error);
-            alert('Hubo un error al iniciar el pago.');
+            alert(`Hubo un error al iniciar el pago: ${error instanceof Error ? error.message : 'Error desconocido'}`);
         }
     };
 

@@ -1,4 +1,5 @@
 import Hero from '@/components/Hero';
+import Link from 'next/link';
 import ProductGrid from '@/components/ProductGrid';
 import { products } from '@/lib/data';
 import styles from './page.module.css';
@@ -14,6 +15,12 @@ export default function Home() {
         </div>
 
         <ProductGrid products={products.slice(0, 4)} showFilters={false} />
+
+        <div className={styles.ctaWrapper}>
+          <Link href="/catalogo" className="btn btn-primary">
+            Explorar Catálogo
+          </Link>
+        </div>
       </div>
     </main>
   );

@@ -29,17 +29,23 @@ export async function POST(request: Request) {
       };
     });
 
+    const origin = request.headers.get('origin') || process.env.NEXT_PUBLIC_URL || 'http://localhost:3000';
+
     const preference = new Preference(client);
+
+    const backUrls = {
+      success: `${origin}/success`,
+      failure: `${origin}/?status=failure`,
+      pending: `${origin}/?status=pending`,
+    };
+
+    console.log('Creating preference with back_urls:', backUrls);
 
     const result = await preference.create({
       body: {
         items: validItems,
-        back_urls: {
-          success: `${request.headers.get('origin')}/success`,
-          failure: `${request.headers.get('origin')}/?status=failure`,
-          pending: `${request.headers.get('origin')}/?status=pending`,
-        },
-        auto_return: 'approved',
+        back_urls: backUrls,
+        // auto_return: 'approved',
       }
     });
 
@@ -52,7 +58,7 @@ export async function POST(request: Request) {
   } catch (error) {
     console.error('Checkout error:', error);
     return NextResponse.json(
-      { error: 'Error processing checkout' },
+      { error: 'Error processing checkout: ' + (error instanceof Error ? error.message : String(error)) },
       { status: 500 }
     );
   }
