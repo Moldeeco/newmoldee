@@ -22,12 +22,17 @@ export async function POST(request: Request) {
       }
       return {
         id: item.id,
-        title: `${item.name} (${item.selectedMaterial} - ${item.selectedColor})`,
+        title: item.selectedMaterial
+          ? `${item.name} (${item.selectedMaterial} - ${item.selectedColor})`
+          : `${item.name} (${item.selectedColor})`,
         quantity: Number(item.quantity),
         unit_price: Number(product.price), // Use server-side price
         currency_id: 'COP',
       };
     });
+
+    const productsTotal = validItems.reduce((acc: number, item: any) => acc + (item.unit_price * item.quantity), 0);
+    const shippingCost = productsTotal > 89000 ? 0 : 9900;
 
     const origin = request.headers.get('origin') || process.env.NEXT_PUBLIC_URL || 'http://localhost:3000';
 
@@ -46,6 +51,10 @@ export async function POST(request: Request) {
         items: validItems,
         back_urls: backUrls,
         // auto_return: 'approved',
+        shipments: {
+          mode: 'not_specified', // Forces address collection
+          cost: shippingCost,
+        },
       }
     });
 

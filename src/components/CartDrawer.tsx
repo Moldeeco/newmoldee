@@ -3,10 +3,9 @@ import { useCart } from '@/context/CartContext';
 import styles from './CartDrawer.module.css';
 import { useEffect, useRef } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 
 export default function CartDrawer() {
-    const { isCartOpen, toggleCart, items, removeItem, totalPrice } = useCart();
+    const { isCartOpen, toggleCart, items, removeItem, updateQuantity, totalPrice } = useCart();
     const drawerRef = useRef<HTMLDivElement>(null);
 
     // Close on click outside
@@ -68,16 +67,14 @@ export default function CartDrawer() {
                             <button onClick={toggleCart} className={styles.continueBtn}>Continuar comprando</button>
                         </div>
                     ) : (
-                        items.map((item, index) => (
+                        items.map((item) => (
                             <div key={`${item.id}-${item.selectedColor}-${item.selectedMaterial}`} className={styles.item}>
                                 <div className={styles.itemImage}>
-                                    {/* Simplified image handling for now */}
-                                    <div style={{ width: '100%', height: '100%', backgroundColor: '#f0f0f0' }}>
+                                    <div style={{ width: '100%', height: '100%', position: 'relative' }}>
                                         <Image
                                             src={item.images[0]}
                                             alt={item.name}
-                                            width={80}
-                                            height={80}
+                                            fill
                                             style={{ objectFit: 'cover' }}
                                         />
                                     </div>
@@ -88,7 +85,21 @@ export default function CartDrawer() {
                                         {item.selectedMaterial ? `${item.selectedMaterial} / ` : ''}{item.selectedColor}
                                     </p>
                                     <div className={styles.priceRow}>
-                                        <span>Cant: {item.quantity}</span>
+                                        <div className={styles.quantityControls}>
+                                            <button
+                                                className={styles.qtyBtn}
+                                                onClick={() => item.quantity > 1 ? updateQuantity(item.id, item.selectedColor, item.selectedMaterial, item.quantity - 1) : removeItem(item.id, item.selectedColor, item.selectedMaterial)}
+                                            >
+                                                -
+                                            </button>
+                                            <span className={styles.quantity}>{item.quantity}</span>
+                                            <button
+                                                className={styles.qtyBtn}
+                                                onClick={() => updateQuantity(item.id, item.selectedColor, item.selectedMaterial, item.quantity + 1)}
+                                            >
+                                                +
+                                            </button>
+                                        </div>
                                         <span>${(item.price * item.quantity).toLocaleString('es-CO')}</span>
                                     </div>
                                     <button
