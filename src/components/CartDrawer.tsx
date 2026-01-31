@@ -116,11 +116,30 @@ export default function CartDrawer() {
 
                 {items.length > 0 && (
                     <div className={styles.footer}>
-                        <div className={styles.total}>
-                            <span>Total</span>
-                            <span>{formattedTotal}</span>
+                        {totalPrice < 89000 ? (
+                            <div className={styles.shippingProgress}>
+                                <p>Faltan <strong>{new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', minimumFractionDigits: 0 }).format(89000 - totalPrice)}</strong> para envío gratis</p>
+                                <div className={styles.progressBar}>
+                                    <div style={{ width: `${Math.min((totalPrice / 89000) * 100, 100)}%` }} />
+                                </div>
+                            </div>
+                        ) : (
+                            <p className={styles.freeShippingSuccess}>¡Tienes envío gratis!</p>
+                        )}
+
+                        <div className={styles.summaryRow}>
+                            <span>Subtotal</span>
+                            <span>{new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', minimumFractionDigits: 0 }).format(totalPrice)}</span>
                         </div>
-                        <p className={styles.shippingNote}>Envío calculado en el siguiente paso</p>
+                        <div className={styles.summaryRow}>
+                            <span>Envío</span>
+                            <span>{totalPrice > 89000 ? 'Gratis' : new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', minimumFractionDigits: 0 }).format(9900)}</span>
+                        </div>
+                        <div className={`${styles.summaryRow} ${styles.totalRow}`}>
+                            <span>Total</span>
+                            <span>{new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', minimumFractionDigits: 0 }).format(totalPrice + (totalPrice > 89000 ? 0 : 9900))}</span>
+                        </div>
+
                         <button
                             className={`btn btn-primary ${styles.checkoutBtn}`}
                             onClick={handleCheckout}
