@@ -18,7 +18,7 @@ export default function Footer() {
                 <div className={styles.section}>
                     <h4 className={styles.title}>Síguenos</h4>
                     <a href="https://instagram.com/moldee.co" target="_blank" rel="noopener noreferrer" className={styles.link}>Instagram</a>
-                    <a href="https://wa.me/573102302832" target="_blank" rel="noopener noreferrer" className={styles.link}>WhatsApp</a>
+                    <a href="https://wa.me/573054312520" target="_blank" rel="noopener noreferrer" className={styles.link}>WhatsApp</a>
                 </div>
                 <div className={styles.copy}>
                     &copy; {new Date().getFullYear()} Moldee.co. Hecho en Colombia 🇨🇴
