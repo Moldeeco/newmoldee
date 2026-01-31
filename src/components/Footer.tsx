@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import styles from './Footer.module.css';
 
 export default function Footer() {
@@ -10,8 +11,9 @@ export default function Footer() {
                 </div>
                 <div className={styles.section}>
                     <h4 className={styles.title}>Ayuda</h4>
-                    <a href="#" className={styles.link}>Envíos y Devoluciones</a>
-                    <a href="#" className={styles.link}>Contacto</a>
+                    <Link href="/politicas/envios-devoluciones" className={styles.link}>Envíos y Devoluciones</Link>
+                    <Link href="/politicas/privacidad" className={styles.link}>Privacidad</Link>
+                    <Link href="/politicas/terminos" className={styles.link}>Términos y Condiciones</Link>
                 </div>
                 <div className={styles.copy}>
                     &copy; {new Date().getFullYear()} Moldee.co. Hecho en Colombia 🇨🇴
